@@ -47,3 +47,15 @@ run the command `exit` to exit the container
 
 - Remember 5a87 is the beginning of the container id
 ![alt text](exiting_containers.png)
+
+in order to delete a container, it must not be running
+commands that can be run to stop a container:
+- `docker stop container_id` - can use the CLI or docker desktop to check if the container has been stopped
+- `docker rm container_id` - run this command to delete the container
+
+force removing a running container, allows for a container to be deleted whilst running (not best practice):
+`docker rm -f container_id`
+
+containers can be stopped/removed in batches:
+`docker rm container_1 container_2`
+![alt text](container_batch_removal.png)
