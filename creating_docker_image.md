@@ -49,7 +49,23 @@ the static website is now running within the docker container
 - can create a new image containing nginx, and all the changes we've just made
 
 **Saving images on docker:**
-run the command `docker commit my_website my_cv` on the container where all your changes have been made
+1- run the command `docker commit my_website my_cv` on the container where all your changes have been made
 - my_website - name of the container you want to save an image from
 - my_cv - the name of the image you are creating
 - can run the command `docker images` to double check it has been successfully created ![list of docker images](docker_images.png)
+  
+2- my_website container can now be removed
+
+3- create a new container, using the newly created image
+`docker run --name website_from_image -d -p 80:80 my_cv`
+
+- nginx now runs with the changes made in previous container
+
+4- save the image to DockerHub - it is currently only available on local device
+ `docker commit <container_id> <your_username>/image_name:<tag>`
+ eg. `docker commit 429b schung97/docker_series_website:latest`
+
+ `docker push schung97/docker_series_website:latest` command will push the repo to DockerHub
+
+ - the newly created image is now saved on DockerHub cloud
+ - the local image can now be removed
